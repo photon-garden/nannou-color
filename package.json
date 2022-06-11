@@ -1,16 +1,37 @@
 {
-  "name": "nannou-color",
-  "displayName": "nannou_color",
-  "description": "Pick colors by hovering over them in Nannou projects.",
+  "name": "wind-walk",
+  "displayName": "Wind Walk",
+  "description": "Tools for generative art.",
   "version": "0.0.1",
-  "repository": "https://github.com/photon_garden/nannou_color",
+  "repository": "https://github.com/photon_garden/wind-walk",
   "engines": {
     "vscode": "^1.67.0"
   },
-  "categories": ["Other"],
-  "activationEvents": ["onLanguage:rust"],
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onLanguage:rust"
+  ],
   "main": "./out/extension.js",
-  "contributes": {},
+  "contributes": {
+    "commands": [
+      {
+        "command": "wind-walk.switchToSnapshot",
+        "title": "Switch To Snapshot",
+        "category": "Wind Walk",
+        "icon": "$(history)"
+      }
+    ],
+    "menus": {
+      "commandPalette": [
+        {
+          "command": "wind-walk.switchToSnapshot",
+          "when": "resourceDirname =~ /examples/"
+        }
+      ]
+    }
+  },
   "scripts": {
     "vscode:prepublish": "yarn run compile",
     "compile": "tsc -p ./",
@@ -18,9 +39,10 @@
     "pretest": "yarn run compile && yarn run lint",
     "lint": "eslint src --ext ts",
     "test": "node ./out/test/runTest.js",
-    "package": "vsce package && code --install-extension nannou-color-0.0.1.vsix"
+    "package": "vsce package && code --install-extension wind-walk-0.0.1.vsix"
   },
   "devDependencies": {
+    "@types/fs-extra": "^9.0.13",
     "@types/glob": "^7.2.0",
     "@types/mocha": "^9.1.1",
     "@types/node": "16.x",
@@ -34,5 +56,8 @@
     "glob": "^8.0.3",
     "mocha": "^10.0.0",
     "typescript": "^4.7.2"
+  },
+  "dependencies": {
+    "fs-extra": "^10.1.0"
   }
 }

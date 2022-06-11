@@ -1,4 +1,4 @@
-# nannou-color
+# wind-walk
 
 To rebuild:
 
