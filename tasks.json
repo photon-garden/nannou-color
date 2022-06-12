@@ -1,0 +1,37 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    //
+    // This sets up a task for executing the current piece.
+    // I like to bind this task to command + enter. You can do
+    // that by opening the keyboard shortcuts JSON file and adding
+    // this item:
+    //
+    // {
+    //     "key": "cmd+enter",
+    //     "command": "workbench.action.tasks.runTask",
+    //     "args": "rust: cargo run --release",
+    // }
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "type": "cargo",
+            "command": "run",
+            "args": [
+                "--release"
+            ],
+            "problemMatcher": [
+                "$rustc"
+            ],
+            "label": "rust: cargo run --release",
+            "presentation": {
+                "echo": true,
+                "reveal": "silent",
+                "focus": false,
+                "panel": "shared",
+                "showReuseMessage": true,
+                "clear": true
+            }
+        }
+    ]
+}
